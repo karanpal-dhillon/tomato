@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
+    <style>
+        .clock {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1000%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-warning is-fullheight is-bold">
+        <div class="hero-head">
+            <div class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a href="#" class="navbar-item">Tomato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title clock">
+                    <span id="minutes"></span>
+                    <span>:</span>
+                    <span id="seconds"></span>
+                </h1>
+                <div class="buttons has-addons is-centered">
+                    <span class="button is-medium is-primary" id="start"
+                        onclick="start(this)">START</span>
+                    <span class="button is-medium is-info" disabled id="pause"
+                        onclick="pause()">PAUSE</span>
+                    <span class="button is-medium is-danger" disabled id="reset"
+                        onclick="reset()">RESET</span>
+                </div>
+                <div class="buttons has-addons is-centered">
+                    <span class="button is-medium is-primary custom-time" id="twenty-five-min"
+                        onclick="startCustomTimer(this, 25)">
+                        25 min
+                    </span>
+                    <span class="button is-medium is-primary custom-time" id="ten-min"
+                        onclick="startCustomTimer(this, 10)">
+                        10 min
+                    </span>
+                    <span class="button is-medium is-primary custom-time" id="five-min"
+                        onclick="startCustomTimer(this, 5)">
+                        5 min
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="tomato.js"></script>
+</body>
+
+</html>
