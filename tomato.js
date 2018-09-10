@@ -5,8 +5,11 @@ let secondElem = document.querySelector('#seconds');
 let startElem = null;
 let pauseElem = null;
 let resetElem = null;
-let sound = new Howl({
+let tick = new Howl({
   src: 'tick.mp3'
+});
+let tada = new Howl({
+  src: 'tada.mp3'
 });
 function start($event) {
   startElem.setAttribute('disabled', 'disabled');
@@ -24,13 +27,17 @@ window.addEventListener('load', () => {
 });
 
 function startCountdown() {
-  if (time === 0) clearInterval(interval);
   let minutes = padding(Math.floor(time / 60));
   let seconds = padding(time - 60 * minutes);
   minuteElem.innerHTML = minutes;
   secondElem.innerHTML = seconds;
   time -= 1;
-  sound.play();
+  let tickId = tick.play();
+  if (time === 0) {
+    tick.stop();
+    clearInterval(interval);
+    tada.play();
+  }
 }
 
 function padding(num) {
